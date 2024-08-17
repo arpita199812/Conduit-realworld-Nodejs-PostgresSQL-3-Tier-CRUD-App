@@ -1,27 +1,27 @@
 /** @type {import('sequelize').Options} */
 module.exports = {
   development: {
-    username: process.env.DEV_DB_USERNAME,
-    password: process.env.DEV_DB_PASSWORD,
-    database: process.env.DEV_DB_NAME,
-    host: process.env.DEV_DB_HOSTNAME,
-    dialect: process.env.DEV_DB_DIALECT,
-    logging: process.env.DEV_DB_LOGGING,
+    username: 'root',  // Your database username
+    password: 'root',  // Your database password
+    database: 'database_development',  // Your database name
+    host: '127.0.0.1',  // Your database host
+    dialect: 'mysql',  // Specify the dialect directly
+    logging: true,  // Optional: Set to false to disable SQL query logging
   },
   test: {
-    username: process.env.TEST_DB_USERNAME,
-    password: process.env.TEST_DB_PASSWORD,
-    database: process.env.TEST_DB_NAME,
-    host: process.env.TEST_DB_HOSTNAME,
-    dialect: process.env.TEST_DB_DIALECT,
-    logging: process.env.TEST_DB_LOGGING,
+    username: 'root',  // Your database username
+    password: 'root',  // Your database password
+    database: 'database_testing',  // Your test database name
+    host: '127.0.0.1',  // Your test database host
+    dialect: 'mysql',  // Specify the dialect directly
+    logging: true,  // Optional: Set to false to disable SQL query logging
   },
   production: {
-    username: process.env.PROD_DB_USERNAME,
-    password: process.env.PROD_DB_PASSWORD,
-    database: process.env.PROD_DB_NAME,
-    host: process.env.PROD_DB_HOSTNAME,
-    dialect: process.env.PROD_DB_DIALECT,
-    logging: process.env.PROD_DB_LOGGING,
+    username: 'root',  // Your database username
+    password: 'root',  // Your database password
+    database: 'database_production',  // Your production database name
+    host: '127.0.0.1',  // Your production database host
+    dialect: 'mysql',  // Specify the dialect directly
+    logging: false,  // Optional: Set to false to disable SQL query logging
   },
 };
