@@ -1,4 +1,6 @@
-require("dotenv").config();
+require('dotenv').config(); // Load environment variables from .env file
+const jwtSecret = process.env.JWT_SECRET;
+// Your server code here
 const env = process.env.NODE_ENV || "development";
 const PORT = process.env.PORT || 3001;
 const express = require("express");
