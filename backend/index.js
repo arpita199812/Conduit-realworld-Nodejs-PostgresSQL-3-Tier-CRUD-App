@@ -1,7 +1,5 @@
 require('dotenv').config(); // Load environment variables from .env file
-
-const jwtSecret = process.env.JWT_SECRET; // Define your JWT secret
-
+const jwtSecret = process.env.JWT_SECRET;
 const env = process.env.NODE_ENV || "development";
 const PORT = process.env.PORT || 3001;
 const express = require("express");
@@ -9,13 +7,14 @@ const cors = require("cors");
 const { sequelize } = require("./models");
 const errorHandler = require("./middleware/errorHandler");
 
-// Import routes
 const usersRoutes = require("./routes/users");
 const userRoutes = require("./routes/user");
 const articlesRoutes = require("./routes/articles");
 const profilesRoutes = require("./routes/profiles");
 const tagsRoutes = require("./routes/tags");
-const protectedRoutes = require("./routes/protectedRoutes"); // Import protected routes if you have any
+
+// Remove or comment out this line if you don't have the file
+// const protectedRoutes = require('./routes/protectedRoutes');
 
 const app = express();
 app.use(cors());
@@ -41,7 +40,9 @@ app.use("/api/user", userRoutes);
 app.use("/api/articles", articlesRoutes);
 app.use("/api/profiles", profilesRoutes);
 app.use("/api/tags", tagsRoutes);
-app.use("/api/protected", protectedRoutes); // Apply the protected routes if required
+
+// Remove or comment out this line if you don't have the file
+// app.use('/api/protected', protectedRoutes);
 
 app.get("*", (req, res) =>
   res.status(404).json({ errors: { body: ["Not found"] } }),
