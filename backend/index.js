@@ -1,6 +1,7 @@
 require('dotenv').config(); // Load environment variables from .env file
-const jwtSecret = process.env.JWT_SECRET;
-// Your server code here
+
+const jwtSecret = process.env.JWT_SECRET; // Define your JWT secret
+
 const env = process.env.NODE_ENV || "development";
 const PORT = process.env.PORT || 3001;
 const express = require("express");
@@ -8,11 +9,13 @@ const cors = require("cors");
 const { sequelize } = require("./models");
 const errorHandler = require("./middleware/errorHandler");
 
+// Import routes
 const usersRoutes = require("./routes/users");
 const userRoutes = require("./routes/user");
 const articlesRoutes = require("./routes/articles");
 const profilesRoutes = require("./routes/profiles");
 const tagsRoutes = require("./routes/tags");
+const protectedRoutes = require("./routes/protectedRoutes"); // Import protected routes if you have any
 
 const app = express();
 app.use(cors());
@@ -32,14 +35,18 @@ if (process.env.NODE_ENV === "production") {
 } else {
   app.get("/", (req, res) => res.json({ status: "API is running on /api" }));
 }
+
 app.use("/api/users", usersRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/articles", articlesRoutes);
 app.use("/api/profiles", profilesRoutes);
 app.use("/api/tags", tagsRoutes);
+app.use("/api/protected", protectedRoutes); // Apply the protected routes if required
+
 app.get("*", (req, res) =>
   res.status(404).json({ errors: { body: ["Not found"] } }),
 );
+
 app.use(errorHandler);
 
 app.listen(PORT, () =>
