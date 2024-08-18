@@ -1,29 +1,17 @@
 const jwt = require('jsonwebtoken');
-const jwtSecret = process.env.JWT_KEY;
+const jwtSecret = process.env.JWT_KEY; // Use JWT_KEY environment variable
 
+if (!jwtSecret) {
+  throw new Error('JWT_KEY environment variable is not set');
+}
 
-// Sign a JWT token
 module.exports.jwtSign = async (payload) => {
-  return new Promise((resolve, reject) => {
-    jwt.sign(
-      { username: payload.username, email: payload.email },
-      privateKey,
-      { expiresIn: '1h' }, // Token expires in 1 hour, adjust as needed
-      (err, token) => {
-        if (err) return reject(err);
-        resolve(token);
-      }
-    );
-  });
+  return jwt.sign(
+    { username: payload.username, email: payload.email },
+    jwtSecret, // Use jwtSecret here
+  );
 };
 
-// Verify a JWT token
 module.exports.jwtVerify = async (token) => {
-  return new Promise((resolve, reject) => {
-    jwt.verify(token, privateKey, (err, decoded) => {
-      if (err) return reject(err);
-      resolve(decoded);
-    });
-  });
+  return jwt.verify(token, jwtSecret); // Use jwtSecret here
 };
-
