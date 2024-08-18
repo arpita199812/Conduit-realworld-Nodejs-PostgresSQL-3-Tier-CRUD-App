@@ -1,5 +1,5 @@
-const { User } = require("../models");
 const { jwtSign } = require("../helper/jwt");
+const { User } = require("../models");
 const { bcryptHash, bcryptCompare } = require("../helper/bcrypt");
 const {
   ValidationError,
