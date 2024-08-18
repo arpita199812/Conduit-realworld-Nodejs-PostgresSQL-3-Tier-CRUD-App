@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
-const privateKey = process.env.JWT_KEY;
+const jwtKey = process.env.JWT_KEY;
+
 
 // Sign a JWT token
 module.exports.jwtSign = async (payload) => {
