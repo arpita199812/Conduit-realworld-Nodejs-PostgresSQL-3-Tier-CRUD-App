@@ -4,8 +4,6 @@
 
 This codebase was created to demonstrate a fully fledged fullstack application built with **React / Vite + SWC / Express.js / Sequelize / PostgreSQL** including CRUD operations, authentication, routing, pagination, and more.
 
-**[Demo app](https://conduit-realworld-example-app.fly.dev/)&nbsp;&nbsp;|&nbsp;&nbsp;[With Create React App](https://github.com/TonyMckes/conduit-realworld-example-app/tree/create-react-app)&nbsp;&nbsp;|&nbsp;&nbsp;[Other RealWorld Example Apps](https://codebase.show/projects/realworld?category=fullstack)**
-
 > For more information on how to this works with other frontends/backends, head over to the [RealWorld](https://github.com/gothinkster/realworld) repo.
 
 ---
@@ -24,6 +22,12 @@ Before you run the project, make sure that you have the following tools and soft
 - [NPM](https://www.npmjs.com/) (usually included with Node.js)
 - SQL database
 
+  ![Screenshot 2024-08-18 160105](https://github.com/user-attachments/assets/78b27b4e-d6f6-4e79-85c9-5b5c1adaba0a)
+
+  ![Screenshot 2024-08-18 160206](https://github.com/user-attachments/assets/20ce1a6b-2931-4c91-ba44-507e1eb496f7)
+
+  ![Screenshot 2024-08-18 160335](https://github.com/user-attachments/assets/84919a93-73b7-43fb-8c39-c7894323790c)
+
 ### Installation
 
 To install the project on your computer, follow these steps:
@@ -31,7 +35,7 @@ To install the project on your computer, follow these steps:
 1. Clone the repository to your local machine.
 
    ```bash
-   git clone https://github.com/TonyMckes/conduit-realworld-example-app.git
+   git clone https://github.com/arpita199812/conduit-realworld-example-app.git
    ```
 
 2. Navigate to the project directory.
@@ -68,6 +72,9 @@ To install the project on your computer, follow these steps:
    ```
 
    > :information_source: Visit [Sequelize - Installing](https://sequelize.org/docs/v6/getting-started/#installing) for more infomation.
+   >
+   > npm install --save-dev sequelize-cli
+   > npx sequelize –version
 
    ***
 
@@ -78,7 +85,7 @@ To install the project on your computer, follow these steps:
    > :warning: Please, make sure you have already created a superuser for your database.
 
    ```bash
-   npm run sqlz -- db:create
+   npx sequelize db:create --config backend/config/config.js 
    ```
 
    > :information_source: The command `npm run sqlz` is an alias for `npx -w backend sequelize-cli`.  
@@ -105,6 +112,17 @@ To run the project, follow these steps:
 2. Open a web browser and navigate to:
    - Home page should be available at [`http://localhost:3000/`](http://localhost:3000).
    - API endpoints should be available at [`http://localhost:3001/api`](http://localhost:3001/api).
+   ![Screenshot 2024-08-17 130809](https://github.com/user-attachments/assets/35628ea4-65a2-449a-9f0b-e7c59a8a7041)
+
+   ![Screenshot 2024-08-18 153359](https://github.com/user-attachments/assets/3f6f3d85-e42c-44b1-b483-ce1195ff8618)
+   
+   ![Screenshot 2024-08-18 153255](https://github.com/user-attachments/assets/5031b8bf-e9a8-46f9-8d35-1c290b21aeab)
+   
+   ![Screenshot 2024-08-18 153334](https://github.com/user-attachments/assets/d1ab5080-b0ed-4987-8b85-f7b6bf6342e3)
+   
+   ![Screenshot 2024-08-18 153419](https://github.com/user-attachments/assets/dddc44af-52f5-47aa-92c0-51e896554048)
+
+   ![Screenshot 2024-08-17 125106](https://github.com/user-attachments/assets/0380894f-5f72-4ce5-8ad1-024d0aa0153e)
 
 #### Running Tests
 
