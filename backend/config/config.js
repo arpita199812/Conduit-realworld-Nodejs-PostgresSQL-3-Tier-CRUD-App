@@ -1,6 +1,6 @@
 /** @type {import('sequelize').Options} */
 module.exports = {
-  #development: {
+   ht: {
     username: 'root',  // Your database username
     password: 'password123',  // Your database password
     database: 'ht',  // Your database name
