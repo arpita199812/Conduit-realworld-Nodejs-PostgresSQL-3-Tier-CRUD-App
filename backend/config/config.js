@@ -5,6 +5,6 @@ module.exports = {
     password: 'password123',  // Your database password
     database: 'ht',  // Your database name
     host: 'ht.clikieeiijdc.us-east-1.rds.amazonaws.com:3306'
-    dialect: process.env.DB_DIALECT
+    dialect: 'mysql'
   },
 };
