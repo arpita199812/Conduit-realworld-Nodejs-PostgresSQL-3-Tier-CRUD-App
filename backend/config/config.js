@@ -6,3 +6,4 @@ module.exports = {
     database: 'ht',  // Your database name
     host: 'ht.clikieeiijdc.us-east-1.rds.amazonaws.com:3306'
   }
+}
