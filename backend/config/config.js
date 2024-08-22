@@ -5,7 +5,6 @@ module.exports = {
     password: 'password123',  // Your database password
     database: 'ht',  // Your database name
     host: 'ht.clikieeiijdc.us-east-1.rds.amazonaws.com:3306'
-    dialect: 'mysql',  // Specify the dialect directly
     logging: true,  // Optional: Set to false to disable SQL query logging
     jwtKey: process.env.JWT_KEY,  // JWT key for development
   },
