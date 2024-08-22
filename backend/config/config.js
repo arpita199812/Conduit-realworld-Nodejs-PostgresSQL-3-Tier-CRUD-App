@@ -1,25 +1,27 @@
 /** @type {import('sequelize').Options} */
 module.exports = {
-   development: {
-    username: 'root',  // Your database username
-    password: 'password123',  // Your database password
-    database: 'development',  // Your database name
-    host: 'development.clikieeiijdc.us-east-1.rds.amazonaws.com',  // Add the missing comma here
-    dialect: 'mysql', // Correctly defined dialect
-    jwtKey: 'process.env.JWT_KEY'
+  development: {
+    username: 'root',
+    password: 'yourpassword',
+    database: 'development_db',
+    host: '127.0.0.1',
+    dialect: 'mysql', // Specify the dialect here
+    logging: false,
   },
-   test: {
-    username: 'root',  // Your database username
-    password: 'password123',  // Your database password
-    database: 'ht',  // Your test database name
-    host: 'ht.clikieeiijdc.us-east-1.rds.amazonaws.com',  // Your test database host
-    dialect: 'mysql',  // Specify the dialect directl
+  test: {
+    username: 'root',
+    password: 'yourpassword',
+    database: 'testing_db',
+    host: '127.0.0.1',
+    dialect: 'mysql', // Specify the dialect here
+    logging: false,
   },
   production: {
-    username: 'root',  // Your database username
-    password: 'password123',  // Your database password
-    database: 'ht',  // Your production database name
-    host: 'ht.clikieeiijdc.us-east-1.rds.amazonaws.com',  // Your production database host
-    dialect: 'mysql',  // Specify the dialect directly
+    username: 'root',
+    password: 'yourpassword',
+    database: 'production_db',
+    host: '127.0.0.1',
+    dialect: 'mysql', // Specify the dialect here
+    logging: false,
   },
 };
