@@ -1,6 +1,6 @@
 /** @type {import('sequelize').Options} */
 module.exports = {
-  development: {
+  #development: {
     username: 'root',  // Your database username
     password: 'password123',  // Your database password
     database: 'ht',  // Your database name
@@ -9,7 +9,7 @@ module.exports = {
     logging: true,  // Optional: Set to false to disable SQL query logging
     jwtKey: process.env.JWT_KEY,  // JWT key for development
   },
-  test: {
+  #test: {
     username: 'root',  // Your database username
     password: 'root',  // Your database password
     database: 'database_testing',  // Your test database name
@@ -18,7 +18,7 @@ module.exports = {
     logging: true,  // Optional: Set to false to disable SQL query logging
     jwtKey: process.env.JWT_KEY,  // JWT key for test
   },
-  production: {
+  #production: {
     username: 'root',  // Your database username
     password: 'root',  // Your database password
     database: 'database_production',  // Your production database name
