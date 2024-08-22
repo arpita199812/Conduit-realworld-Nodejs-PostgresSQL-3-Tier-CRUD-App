@@ -1,0 +1,86 @@
+pipeline {
+    agent any
+
+    environment {
+        NODE_HOME = 'C:\\Program Files\\nodejs'
+        PATH = "${NODE_HOME};${env.PATH}"
+        NODE_ENV = 'development'
+        AWS_REGION = 'us-east-1'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                withCredentials([string(credentialsId: 'git-cred', variable: 'GITHUB_TOKEN')]) {
+                    git url: "https://$GITHUB_TOKEN@github.com/arpita199812/Conduit-realworld-Nodejs-PostgresSQL-3-Tier-CRUD-App.git", branch: 'main'
+                }
+            }
+        }
+
+        stage('Setup Environment') {
+            steps {
+                withCredentials([string(credentialsId: 'DB_HOSTNAME', variable: 'DB_HOST'),
+                                 string(credentialsId: 'DB_USERNAME', variable: 'DB_USER'),
+                                 string(credentialsId: 'DB_PASSWORD', variable: 'DB_PASSWORD'),
+                                 string(credentialsId: 'DB_NAME', variable: 'DB_NAME')]) {
+                    script {
+                        def envContent = """DB_HOST=${env.DB_HOST}
+DB_USER=${env.DB_USER}
+DB_PASSWORD=${env.DB_PASSWORD}
+DB_NAME=${env.DB_NAME}
+NODE_ENV=${env.NODE_ENV}"""
+                        writeFile file: '.env', text: envContent
+                    }
+                }
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                bat 'npm install'
+            }
+        }
+
+        stage('Install Sequelize CLI') {
+            steps {
+                bat 'npm install --save-dev sequelize-cli'
+            }
+        }
+
+        stage('Create Database') {
+            steps {
+                bat 'npx sequelize db:create --config backend/config/config.js'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                script {
+                    withCredentials([aws(credentialsId: 'AWS-Access-key', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                        // Add your deployment commands here, e.g., deploying to an AWS service.
+                    }
+                }
+            }
+        }
+
+        stage('Dev') {
+            steps {
+                bat 'npx concurrently --names "Node,Vite" -c "green,blue" "npm run dev -w backend" "npm run dev -w frontend"'
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Cleaning up...'
+            // Add cleanup steps here, such as deleting temporary files or stopping services
+        }
+        success {
+            echo 'Build succeeded!'
+        }
+        failure {
+            echo 'Build failed.'
+        }
+    }
+}
+### I build only development database here.
