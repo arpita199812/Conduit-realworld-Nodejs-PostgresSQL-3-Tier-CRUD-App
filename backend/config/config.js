@@ -3,8 +3,8 @@ module.exports = {
    development: {
     username: 'root',  // Your database username
     password: 'password123',  // Your database password
-    database: 'ht',  // Your database name
-    host: 'ht.clikieeiijdc.us-east-1.rds.amazonaws.com',  // Add the missing comma here
+    database: 'development',  // Your database name
+    host: 'development.clikieeiijdc.us-east-1.rds.amazonaws.com',  // Add the missing comma here
     dialect: 'mysql'  // Correctly defined dialect
   },
    test: {
