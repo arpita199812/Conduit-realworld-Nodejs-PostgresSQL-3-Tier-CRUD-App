@@ -6,6 +6,7 @@ module.exports = {
     database: 'development',  // Your database name
     host: 'development.clikieeiijdc.us-east-1.rds.amazonaws.com',  // Add the missing comma here
     dialect: 'mysql'  // Correctly defined dialect
+    jwtKey: 'process.env.JWT_KEY'
   },
    test: {
     username: 'root',  // Your database username
