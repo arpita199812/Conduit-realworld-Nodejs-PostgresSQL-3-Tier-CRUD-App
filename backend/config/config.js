@@ -5,7 +5,6 @@ module.exports = {
     password: 'password123',  // Your database password
     database: 'ht',  // Your database name
     host: 'ht.clikieeiijdc.us-east-1.rds.amazonaws.com:3306'
-    jwtKey: process.env.JWT_KEY,  // JWT key for development
   },
   #test: {
     username: 'root',  // Your database username
